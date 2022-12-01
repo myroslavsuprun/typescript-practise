@@ -48,7 +48,7 @@ person = ["Max", 21];
 enum Status { LOADING, READY };
 
 const page = {
-    load: Status.READY;
+    load: Status.READY,
 }
 
 if (page.load === Status.LOADING) {
