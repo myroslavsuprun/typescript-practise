@@ -1,60 +1,52 @@
-class Key {
-    private signature: number;
+function getPromise():Promise<[string, number]> {
+    return new Promise((resolve) => {
+        resolve(['Text', 50]);
+    });
+}
 
-    constructor() {
-        this.signature = Math.random();
-    }
+getPromise()
+    .then((data) => {
+        console.log(data);
+    })
 
-    public getSignature(): number {
-        return this.signature;
+// -----
+
+type AllType = {
+    name: string;
+    position: number;
+    color: string;
+    weight: number;
+}
+
+function compare(top: Pick<AllType, 'name' | 'color'>, bottom: Pick<AllType, 'position' | 'weight'>): AllType {
+    return {
+        name: top.name,
+        color: top.color,
+        position: bottom.position,
+        weight: bottom.weight,
     }
 }
 
-class Person {
-    constructor(private key: Key) {
-        this.key = key;
-    }
+// ------
 
-    public getKey(): Key {
-        return this.key;
+function merge<T extends object, U extends object>(objA: T, objB: U) {
+    return Object.assign(objA, objB)
+}
+
+// ------
+
+class Component<T> {
+    constructor(public props: T) {
+        
     }
 }
 
-
-abstract class House {
-    protected door = false;
-    private tentants: Person[] = [];
-    
-    constructor(protected key: Key) {
-        this.key = key;
-    }
-
-    public comeIn(person: Person): void {
-        if (!this.door) {
-            throw new Error('The door is shut');
-        }
-
-        this.tentants.push(person);
-        console.log('You have successfully come in');
-    }
-
-    abstract openDoor(key: Key): boolean;
+interface IPage {
+    title: string
 }
 
-class MyHouse extends House {
-    public openDoor(key: Key) {
-        if (key.getSignature() !== this.key.getSignature()) {
-            throw new Error("The key hasn't matched");
-        }
-        return this.door = true;
+class Page extends Component<IPage> {
+    pageInfo() {
+        console.log(this.props.title);
     }
 }
-
-
-
-const key = new Key();
-const myHouse = new MyHouse(key);
-const person = new Person(key);
-
-myHouse.openDoor(person.getKey());
-myHouse.comeIn(person);
