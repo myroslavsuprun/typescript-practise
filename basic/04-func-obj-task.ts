@@ -18,7 +18,7 @@ interface Admin extends User {
 // Create a function login with param user (with keys login and password)
 // Check if login and password are not empty and then greet user
 
-function login(user: { login: string, password: string }): void {
+export function login(user: { login: string, password: string }): void {
 
     if (user.login && user.password) {
         console.log("Welcome on the page");
