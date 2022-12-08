@@ -2,7 +2,7 @@ function printPoint(point: { x: string, y: string }): void {
     console.log('Coordinate of the point is x:', point.x, point.y);
 }
 
-const obj1 = {
+export const obj1 = {
     x: '1',
     y: '2',
 }

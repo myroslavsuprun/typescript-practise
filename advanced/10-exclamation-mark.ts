@@ -21,6 +21,6 @@ function printName2(person?: Person) {
 }
 
 
-const people: Person[] = [
-]
+const people: Person[] = []
 
+export {}

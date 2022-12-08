@@ -4,7 +4,7 @@ const strs: string[] = [];
 const strs2: Array<string> = [];
 
 
-const cars: Car[] = [];
+const cars: Array<any> = [];
 
 cars.push({ brand: 'Audi', wheels: 3, type: '' });
 
@@ -12,7 +12,7 @@ const arrOfArray: string[][][] = [];
 
 arrOfArray.push([[''], [''], ['']])
 
-function printArr(arr: unknown[]): void {
+export function printArr(arr: unknown[]): void {
     arr.forEach((el, index) => {
         console.log(el, index);
     })

@@ -38,7 +38,7 @@ interface IVehicle {
     brand: string;
 }
 
-interface ICar extends IProduct, IVehicle {
+export interface ICar extends IProduct, IVehicle {
     model: string;
     type: string | number;
 }

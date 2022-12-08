@@ -1,4 +1,4 @@
- export function createMap<T>(list: T[]) {
+export function createMap<T>(list: T[]) {
   return function<U>(cb: (arg: T) => U): U[] {
     const result = [];
  
